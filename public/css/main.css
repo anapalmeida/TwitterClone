@@ -1,0 +1,19 @@
+nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  height: 100%;
+}
+
+nav a {
+  display: block;
+  padding: 10px;
+  font-size: 26px;
+  width: 55px;
+  height: 55px;
+}
+
+.mainSectionContainer {
+  background-color: rgb(169, 90, 169);
+}
