@@ -1,9 +1,10 @@
 const express = require("express");
 const middleware = require("./middleware");
 const path = require("path");
+const mongoose = require("./database");
 
 const app = express();
-const port = 3003;
+const port = process.env.PORT;
 
 const server = app.listen(port, () => {
   console.log(`Express running → PORT ${port}`);
