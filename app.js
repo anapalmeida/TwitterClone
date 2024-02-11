@@ -1,7 +1,8 @@
 const express = require("express");
 const middleware = require("./middleware");
-const path = require("path");
 const mongoose = require("./database");
+const path = require("path");
+const session = require("express-session");
 
 const app = express();
 const port = process.env.PORT;
@@ -17,6 +18,13 @@ app.use(express.json());
 app.use(
   express.urlencoded({
     extended: false,
+  })
+);
+app.use(
+  session({
+    secret: "Why, Miss Elphaba – look at you. You're beautiful.",
+    resave: true,
+    saveUninitialized: false,
   })
 );
 
