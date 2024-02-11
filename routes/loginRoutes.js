@@ -7,7 +7,11 @@ app.set("view engine", "pug");
 app.set("views", "views");
 
 router.get("/", (req, res, next) => {
-  res.status(200).render("login");
+  var payload = {
+    pageTitle: "Login",
+  };
+
+  res.status(200).render("login", payload);
 });
 
 module.exports = router;
