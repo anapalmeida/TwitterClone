@@ -38,6 +38,7 @@ app.use("/register", registerRoute);
 app.get("/", middleware.requireLogin, (req, res, next) => {
   var payload = {
     pageTitle: "Twitter",
+    userLoggedIn: req.session.user,
   };
 
   res.status(200).render("home", payload);
