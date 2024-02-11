@@ -1,5 +1,6 @@
 const express = require("express");
 const middleware = require("./middleware");
+const path = require("path");
 
 const app = express();
 const port = 3003;
@@ -10,6 +11,7 @@ const server = app.listen(port, () => {
 
 app.set("view engine", "pug");
 app.set("views", "views");
+app.use(express.static(path.join(__dirname, "public")));
 
 // Routes
 const loginRoute = require("./routes/loginRoutes");
