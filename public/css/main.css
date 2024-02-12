@@ -4,7 +4,7 @@
   --blue-lighter: #9bd1f9;
   --grey-light: rgb(230, 236, 240);
   --spacing: 15px;
-  --border: 1px solid var(--light-grey);
+  --border: 1px solid var(--grey-light);
 }
 
 * {
