@@ -33,9 +33,14 @@ const loginRoute = require("./routes/loginRoutes");
 const logoutRoute = require("./routes/logoutRoutes");
 const registerRoute = require("./routes/registerRoutes");
 
+// API Routes
+const postsApiRoute = require("./routes/api/posts");
+
 app.use("/login", loginRoute);
 app.use("/logout", logoutRoute);
 app.use("/register", registerRoute);
+
+app.use("/api/posts", postsApiRoute);
 
 app.get("/", middleware.requireLogin, (req, res, next) => {
   var payload = {
