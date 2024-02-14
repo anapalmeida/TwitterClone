@@ -23,7 +23,6 @@ router.get("/", (req, res, next) => {
 });
 
 router.post("/", async (req, res, next) => {
-  console.log("hey");
   var payload = req.body;
 
   if (req.body.logUsername && req.body.logPassword) {

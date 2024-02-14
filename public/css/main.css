@@ -34,6 +34,7 @@ nav {
 }
 
 nav a {
+  margin-top: 5px;
   padding: 10px;
   font-size: 27px;
   width: 55px;
@@ -42,6 +43,7 @@ nav a {
   align-items: center;
   justify-content: center;
   color: #212529;
+  text-decoration: none;
 }
 
 nav a.twitterIcon {
