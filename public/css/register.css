@@ -1,0 +1,147 @@
+:root {
+  --white: #fff;
+  --black: #000;
+  --blue-twitter: #1fa2f1;
+  --blue-twitter-hover: #1d9ae7;
+  --blue-light: #d4edff;
+  --blue-lighter: #9bd1f9;
+  --grey-light: rgb(230, 236, 240);
+  --border: 1px solid var(--grey-light);
+}
+
+.registerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f8f8;
+}
+
+.registerContainer {
+  border-radius: 20px;
+  padding: 36px;
+  min-width: 700px;
+  background-color: var(--white);
+  box-shadow: inset;
+}
+
+.registerContainer__close-button a {
+  display: block;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.registerContainer__close-button a:hover {
+  background-color: var(--blue-light);
+  color: var(--blue-twitter);
+  border-radius: 50%;
+}
+
+.registerContainer__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.registerContainer__logo svg {
+  height: 3rem;
+  fill: var(--blue-twitter);
+}
+
+/* .registerContainer__title {
+  margin: 10px 0;
+} */
+
+.registerContainer__title h1 {
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 800;
+  font-size: 50px;
+  line-height: 84px;
+  letter-spacing: -0.8px;
+  margin: 0;
+}
+
+.registerContainer__input {
+  margin: 10px 0;
+}
+
+.registerContainer__buttons div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.registerContainer__submit-button input {
+  padding: 0 16px;
+  width: 350px;
+  height: 40px;
+  background-color: var(--blue-twitter);
+  font-family: "Libre Franklin", sans-serif;
+  text-align: center;
+  font-weight: 700;
+  color: var(--white);
+  border-radius: 20px;
+  border: none;
+  transition: 0.3s;
+}
+
+.registerContainer__cancel-button {
+  margin-bottom: 10px;
+}
+
+.registerContainer__cancel-button a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  width: 350px;
+  height: 40px;
+  background-color: var(--white);
+  border: var(--border);
+  font-family: "Libre Franklin", sans-serif;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--blue-twitter);
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.registerContainer__submit-button input:hover {
+  background-color: var(--blue-twitter-hover);
+}
+
+.registerContainer__span {
+  display: flex;
+}
+
+.registerContainer__span span {
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 800;
+}
+
+.registerContainer__login-button {
+  margin-top: 20px;
+}
+
+.registerContainer__login-button a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  width: 350px;
+  height: 40px;
+  background-color: var(--white);
+  border: var(--border);
+  font-family: "Libre Franklin", sans-serif;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--blue-twitter);
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.registerContainer__login-button a:hover {
+  background-color: var(--blue-light);
+}

@@ -1,44 +1,173 @@
-body {
-  background-color: #0099ff;
+:root {
+  --white: #fff;
+  --black: #000;
+  --blue-twitter: #1fa2f1;
+  --blue-twitter-hover: #1d9ae7;
+  --blue-light: #d4edff;
+  --blue-lighter: #9bd1f9;
+  --grey-light: rgb(230, 236, 240);
+  --border: 1px solid var(--grey-light);
 }
 
-.wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1.25rem;
+body {
+  background-color: var(--white);
 }
 
 .loginContainer {
-  padding: 1.25rem;
-  width: 80%;
-  max-width: 500px;
-  border: 1px solid #dedede;
-  background-color: #ffff;
-  text-align: center;
-  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: 0 1px 7px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 0 1px 7px rgba(0, 0, 0, 0.3);
+  min-height: 100vh;
 }
 
-form {
+.twitterIconContainer {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--blue-twitter);
+  flex-shrink: 0;
+  min-height: 100vh;
+}
+
+.twitterIconLarge svg {
+  fill: var(--white);
+  height: 40vw;
+}
+
+.loginFormContainer {
+  padding: 16px;
+  flex-shrink: 0;
+}
+
+.contentContainer {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  padding: 20px;
 }
 
-input[type="text"],
-input[type="password"],
-input[type="email"] {
-  padding: 5px 10px;
-  border-radius: 2px;
-  border: 1px solid #dedede;
-  background-color: #f2f2f2;
+.twitterIconSmall {
+  height: 3rem;
+  flex: 1;
 }
 
-input[type="submit"] {
-  background-color: #0099ff;
-  color: #ffff;
+.twitterIconSmall svg {
+  fill: var(--blue-twitter);
+  height: 3rem;
+}
+
+.titleContainer {
+  margin: 40px 0;
+}
+
+.titleContainer h1 {
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 900;
+  font-size: 64px;
+  line-height: 84px;
+  letter-spacing: -0.8px;
+  margin: 0;
+}
+
+.subtitleContainer {
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.subtitleContainer span {
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 800;
+  font-size: 31px;
+  line-height: 36px;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  max-width: 345px;
+}
+
+.form-floating {
+  margin: 20px 0;
+}
+
+/* .form-floating input {
+  max-width: 345px;
+} */
+
+.submitContainer input {
+  padding: 0 16px;
+  width: 100%;
+  height: 36px;
+  background-color: var(--blue-twitter);
+  font-family: "Libre Franklin", sans-serif;
+  text-align: center;
+  font-weight: 700;
+  color: var(--white);
+  border-radius: 20px;
   border: none;
-  border-radius: 2px;
+  transition: 0.3s;
+}
+
+.submitContainer input:hover {
+  background-color: var(--blue-twitter-hover);
+}
+
+.signInButtonContainer {
+  max-width: 345px;
+  margin-top: 40px;
+}
+
+.signInButtonContainer div {
+  display: flex;
+  margin-top: 30px;
+  max-height: 35px;
+}
+
+.signInButtonContainer div > span {
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 800;
+}
+
+.signInButtonContainer div > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  width: 100%;
+  height: 35px;
+  background-color: var(--white);
+  border: var(--border);
+  font-family: "Libre Franklin", sans-serif;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--blue-twitter);
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.signInButtonContainer div > a:hover {
+  background-color: var(--blue-light);
+}
+
+@media screen and (max-width: 768px) {
+  .loginFormContainer {
+    width: 100%;
+  }
+  .twitterIconContainer {
+    min-width: 100vw;
+    min-height: auto;
+    height: 350px;
+  }
+  .titleContainer {
+    margin: 20px 0;
+  }
+  .titleContainer h1 {
+    line-height: 60px;
+    font-size: 50px;
+  }
+  .subtitleContainer {
+    margin-bottom: 10px;
+  }
+  .form-floating {
+    margin: 10px 0;
+  }
 }

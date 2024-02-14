@@ -16,7 +16,7 @@ app.use(
 
 router.get("/", (req, res, next) => {
   var payload = {
-    pageTitle: "Login",
+    pageTitle: "Twitter. Happening now / Twitter",
   };
 
   res.status(200).render("login", payload);

@@ -16,7 +16,7 @@ app.use(
 
 router.get("/", (req, res, next) => {
   var payload = {
-    pageTitle: "Create an account",
+    pageTitle: "Twitter / Create an account",
   };
 
   res.status(200).render("register", payload);
