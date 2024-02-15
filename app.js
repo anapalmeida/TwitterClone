@@ -44,7 +44,7 @@ app.use("/api/posts", postsApiRoute);
 
 app.get("/", middleware.requireLogin, (req, res, next) => {
   var payload = {
-    pageTitle: "Home / Twitter",
+    pageTitle: "Home",
     userLoggedIn: req.session.user,
   };
 

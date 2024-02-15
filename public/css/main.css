@@ -46,6 +46,10 @@ nav a {
   text-decoration: none;
 }
 
+.errorMessage {
+  width: 350px;
+}
+
 nav a.twitterIcon {
   fill: var(--blue-twitter);
 }

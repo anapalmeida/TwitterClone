@@ -26,7 +26,7 @@ html(lang="en")
                         h1 Create an account
                     form.registerContainer__form.form-floating#registerForm(method="post", onSubmit="event.preventDefault(); validatePassword()")
                         if errorMessage
-                            p.errorMessage.alert.alert-primary #{errorMessage}
+                            div.errorMessage.alert.alert-primary #{errorMessage}
                         div
                             .registerContainer__input.form-floating
                                 input.form-control#firstName(type="text", name="firstName", placeholder="First name", value=firstName, required="")
