@@ -12,7 +12,15 @@ app.use(
   })
 );
 
-router.get("/", (req, res, next) => {});
+router.get("/", (req, res, next) => {
+  Post.find()
+    .then((results) => res.status(200).send(results))
+    .catch((err) => {
+      console.log(err);
+      payload.errorMessage = "Could not retrieve any tweets.";
+      res.status(200).render("/", payload);
+    });
+});
 
 router.post("/", async (req, res, next) => {
   var payload = {
