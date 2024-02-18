@@ -2,9 +2,11 @@
   --blue-twitter: #1fa2f1;
   --blue-light: #d4edff;
   --blue-lighter: #9bd1f9;
-  --grey-light: rgb(230, 236, 240);
+  --grey-light: #e6ecf0;
   --spacing: 15px;
   --border: 1px solid var(--grey-light);
+  --grey-text: #657786;
+  --grey-button: rgba(0, 0, 0, 0.34);
 }
 
 * {
@@ -31,6 +33,7 @@ nav {
   flex-direction: column;
   align-items: flex-end;
   height: 100%;
+  min-height: 100lvh;
 }
 
 nav a {
@@ -99,6 +102,10 @@ nav a:hover {
   background-color: #ffffff;
 }
 
+.userImageContainer a {
+  text-decoration: none;
+}
+
 .textareaContainer {
   flex: 1;
 }
@@ -126,4 +133,163 @@ nav a:hover {
 
 #submitPostButton:disabled {
   background-color: var(--blue-lighter);
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing);
+  cursor: pointer;
+  border-bottom: var(--border);
+  flex-shrink: 0;
+}
+
+.mainContentContainer {
+  display: flex;
+  flex: 1;
+}
+
+.postContentContainer {
+  display: flex;
+  flex-direction: column;
+  padding-left: var(--spacing);
+  flex: 1;
+}
+
+.header {
+  display: flex;
+}
+
+.username,
+.date,
+.divider > span {
+  color: var(--grey-text);
+}
+
+.divider {
+  text-decoration: none;
+  padding: 0 4px;
+}
+
+.displayName {
+  padding-right: 5px;
+  font-weight: bold;
+}
+
+.displayName,
+.date {
+  text-decoration: none;
+}
+
+.displayName:hover {
+  text-decoration-thickness: 1px;
+  text-decoration-line: underline;
+}
+
+.date:hover {
+  color: var(--grey-text);
+  text-decoration-thickness: 1px;
+  text-decoration-line: underline;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  width: 70%;
+}
+
+.footer .footer__container {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  min-width: 300px;
+}
+
+.footer .footer__container button {
+  padding: 0 5px;
+}
+
+.footer__button {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
+  border: none;
+  background: none;
+  height: 37px;
+  width: 37px;
+  transition: 0.2s;
+  color: var(--grey-button);
+}
+
+.footer__button span {
+  font-size: 12px;
+}
+
+.footer__button:hover {
+  border-radius: 50%;
+}
+
+.footer__button--comment:hover {
+  background-color: var(--blue-light);
+  color: var(--blue-twitter);
+}
+
+.footer__button--comment:focus {
+  background-color: transparent;
+  color: var(--blue-twitter);
+}
+
+.footer__button--retweet:hover {
+  background-color: #d4e8e3;
+  color: #00ba7c;
+}
+
+.footer__button--retweet:focus {
+  background-color: transparent;
+  color: #00ba7c;
+}
+
+.footer__button--like:hover {
+  background-color: #fed1e6;
+  color: #f91880;
+}
+
+.footer__button--like:focus {
+  background-color: transparent;
+  color: #f91880;
+}
+
+.footer__button--like:focus .footer__like--empty,
+.footer__button--like:not(:focus) .footer__like--filled {
+  display: none;
+}
+
+.footer__button--like:focus + .footer__like--filled,
+.footer__button--like:not(:focus) + .footer__like--empty {
+  display: flex;
+}
+
+.footer__button--like .footer__like--filled {
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 16px;
+  height: 16px;
+  animation: pulse 0.3s;
+  animation-iteration-count: initial;
+  z-index: 2;
+}
+
+@keyframes pulse {
+  from {
+    font-size: 1%;
+  }
+  75% {
+    font-size: 105%;
+  }
+  to {
+    font-size: 100%;
+  }
 }
