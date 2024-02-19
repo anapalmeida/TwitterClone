@@ -42,15 +42,28 @@ function createPostHtml(postData) {
     var today = new Date();
     var differenceInSeconds = Math.floor((today - timestamp) / 1000);
 
-    if (differenceInSeconds < 60) {
-      return differenceInSeconds + "s";
-    } else if (differenceInSeconds < 3600) {
-      return Math.floor(differenceInSeconds / 60) + "m";
-    } else if (differenceInSeconds < 86400) {
-      return Math.floor(differenceInSeconds / 3600) + "h";
-    } else if (differenceInSeconds / 3600 > 24) {
-      const options = { month: "short", day: "numeric" };
-      return timestamp.toLocaleDateString("en-US", options);
+    if (timestamp.getFullYear() !== today.getFullYear()) {
+      const options = { month: "short", day: "numeric", year: "numeric" };
+      return timestamp.toLocaleDateString(
+        navigator.language ? navigator.language : "en-US",
+        options
+      );
+    } else {
+      if (differenceInSeconds < 5) {
+        return "Just now";
+      } else if (differenceInSeconds < 60) {
+        return differenceInSeconds + "s";
+      } else if (differenceInSeconds < 3600) {
+        return Math.floor(differenceInSeconds / 60) + "m";
+      } else if (differenceInSeconds < 86400) {
+        return Math.floor(differenceInSeconds / 3600) + "h";
+      } else if (differenceInSeconds / 3600 > 24) {
+        const options = { month: "short", day: "numeric" };
+        return timestamp.toLocaleDateString(
+          navigator.language ? navigator.language : "en-US",
+          options
+        );
+      }
     }
   }
 
@@ -93,5 +106,6 @@ function createPostHtml(postData) {
           </div>
         </div>
       </div>
-    </div>`;
+    </div>
+    `;
 }
