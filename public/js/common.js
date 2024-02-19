@@ -30,7 +30,13 @@ $("#submitPostButton").click((event) => {
 });
 
 function createPostHtml(postData) {
-  var postedBy = postData.postedBy;
+  var timestamp = new Date(postData.createdAt);
+  var username = postData.postedBy.username;
+  var name = postData.postedBy.firstName + " " + postData.postedBy.lastName;
+
+  if (!postData.postedBy) {
+    return console.error("User object not populated");
+  }
 
   function getTimestampDifference(timestamp) {
     var today = new Date();
@@ -38,30 +44,32 @@ function createPostHtml(postData) {
 
     if (differenceInSeconds < 60) {
       return differenceInSeconds + "s";
+    } else if (differenceInSeconds < 3600) {
+      return Math.floor(differenceInSeconds / 60) + "m";
     } else if (differenceInSeconds < 86400) {
       return Math.floor(differenceInSeconds / 3600) + "h";
     } else if (differenceInSeconds / 3600 > 24) {
-      return timestamp.getMonth() + " " + timestamp.getDay();
+      const options = { month: "short", day: "numeric" };
+      return timestamp.toLocaleDateString("en-US", options);
     }
   }
 
-  var timestamp = new Date(postData.createdAt);
-  var timeDifference = getTimestampDifference(timestamp);
+  var date = getTimestampDifference(timestamp);
 
   return `
     <div class="post">
       <div class='mainContentContainer'>
         <div class='userImageContainer'>
-          <a href='/profile/${postedBy.username}'>
-            <img src='${postedBy.profilePicture}'>
+          <a href='/profile/${username}'>
+            <img src='${postData.postedBy.profilePicture}'>
           </a>
         </div>
         <div class='postContentContainer'>
           <div class='header'>
-            <a href='/profile/${postedBy.username}' class='displayName'>${postedBy.firstName} ${postedBy.lastName}</a>
-            <span class="username">@${postData.postedBy.username}</span>
+            <a href='/profile/${username}' class='displayName'>${name}</a>
+            <span class="username">@${username}</span>
             <div class="divider"><span>·</span></div>
-            <a class='date' href='/${postedBy.username}/status/${postData._id}'><span>${timeDifference}</span></a>
+            <a class='date' href='/${username}/status/${postData._id}'><span>${date}</span></a>
           </div>
           <div class='postBody'>
             <span>${postData.content}</span>
@@ -85,6 +93,5 @@ function createPostHtml(postData) {
           </div>
         </div>
       </div>
-    </div>
-  `;
+    </div>`;
 }

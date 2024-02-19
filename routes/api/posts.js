@@ -14,6 +14,7 @@ app.use(
 
 router.get("/", (req, res, next) => {
   Post.find()
+    .populate("postedBy")
     .then((results) => res.status(200).send(results))
     .catch((err) => {
       console.log(err);
