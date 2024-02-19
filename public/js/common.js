@@ -29,6 +29,23 @@ $("#submitPostButton").click((event) => {
   });
 });
 
+$(document).on("click", ".footer__button--like", (event) => {
+  var button = $(event.target);
+  var postId = getPostIdFromElement(button);
+
+  alert(postId);
+});
+
+function getPostIdFromElement(element) {
+  var isRoot = element.hasClass("post");
+  var rootElement = isRoot ? element : element.closest(".post");
+  var postId = rootElement.data().id;
+
+  if (postId === undefined) return console.log("Post id undefined");
+
+  return postId;
+}
+
 function createPostHtml(postData) {
   var timestamp = new Date(postData.createdAt);
   var username = postData.postedBy.username;
@@ -70,7 +87,7 @@ function createPostHtml(postData) {
   var date = getTimestampDifference(timestamp);
 
   return `
-    <div class="post">
+    <div class="post" data-id='${postData._id}'>
       <div class='mainContentContainer'>
         <div class='userImageContainer'>
           <a href='/profile/${username}'>
