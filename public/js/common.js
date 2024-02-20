@@ -33,7 +33,16 @@ $(document).on("click", ".footer__button--like", (event) => {
   var button = $(event.target);
   var postId = getPostIdFromElement(button);
 
-  alert(postId);
+  if (postId === undefined) return;
+
+  $.ajax({
+    url: `/api/posts/${postId}/like`,
+    data: ``,
+    type: "PUT",
+    success: (postData) => {
+      console.log(postData);
+    },
+  });
 });
 
 function getPostIdFromElement(element) {

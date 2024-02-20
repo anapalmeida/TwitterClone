@@ -53,4 +53,19 @@ router.post("/", async (req, res, next) => {
     });
 });
 
+router.put("/:id/like", async (req, res, next) => {
+  var payload = {
+    errorMessage: "",
+  };
+
+  var postId = req.params.id;
+  var userId = req.session.user._id;
+  var isLiked =
+    req.session.user.likes && req.session.user.likes.includes(postId);
+
+  var option = isLiked ? "$pull" : "$addToSet";
+
+  console.log(isLiked, option, userId, postId);
+});
+
 module.exports = router;
