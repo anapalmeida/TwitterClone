@@ -7,6 +7,7 @@
   --border: 1px solid var(--grey-light);
   --grey-text: #657786;
   --grey-button: rgba(0, 0, 0, 0.34);
+  --white: #ffffff;
 }
 
 * {
@@ -34,6 +35,25 @@ nav {
   align-items: flex-end;
   height: 100%;
   min-height: 100lvh;
+  background-color: var(--white);
+  top: 0;
+  left: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .foo {
+    position: relative;
+  }
+  nav {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    border-top: var(--border);
+    top: auto;
+    bottom: 0;
+    position: absolute;
+  }
 }
 
 nav a {
@@ -76,7 +96,8 @@ nav a:hover {
   align-items: center;
   height: 53px;
   padding: 0 var(--spacing);
-  border: var(--border);
+  border-top: var(--border);
+  border-bottom: var(--border);
 }
 
 .titleContainer h1 {

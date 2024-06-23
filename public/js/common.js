@@ -40,7 +40,7 @@ $(document).on("click", ".footer__button--like", (event) => {
     data: ``,
     type: "PUT",
     success: (postData) => {
-      console.log(postData);
+      console.log(postData.likes.length);
     },
   });
 });
@@ -117,16 +117,16 @@ function createPostHtml(postData) {
             <div class="footer__container">
               <button class="footer__button footer__button--comment">
                 <i class='far fa-comment'></i>
-                <span class="footer__quantity">1</span>
+                <span class="footer__quantity">${postData.comments?.length || ""}</span>
               </button>
               <button class="footer__button footer__button--retweet">
                 <i class='fas fa-retweet'></i>
-                <span class="footer__quantity">1</span>
+                <span class="footer__quantity">${postData.retweets?.length || ""}</span>
               </button>
               <button class="footer__button footer__button--like">
                 <i class="far fa-heart footer__like--empty"></i>
                 <i class="fa fa-heart footer__like--filled" aria-hidden="true"></i>
-                <span class="footer__quantity">1</span>
+                <span class="footer__quantity">${postData.likes.length || ""}</span>
               </button>
             </div>
           </div>
